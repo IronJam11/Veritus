@@ -14,7 +14,7 @@ import { stats } from '@/utils/constants/landing-page/stats';
 
 import { WEBSITE_NAME } from '@/utils/constants/navbarConstants';
 import { useTheme } from '@/context/ThemeContext';
-import Trading3DChart from '@/utils/constants/landing-page/Trading3DChart';
+// import Trading3DChart from '@/utils/constants/landing-page/Trading3DChart';
 import Link from 'next/link';
 
 
@@ -224,7 +224,7 @@ const LandingPage = () => {
           <div className="relative">
             <div className={`absolute inset-0 bg-gradient-to-r ${isDarkMode ? 'from-neutral-500/10 to-neutral-400/10' : 'from-neutral-300/20 to-neutral-400/20'} rounded-3xl blur-xl`} />
             <div className="relative z-10">
-              <Trading3DChart isDarkMode={darkMode} />
+              {/* <Trading3DChart isDarkMode={darkMode} /> */}
             </div>
           </div>
         </div>
