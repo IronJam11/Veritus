@@ -10,7 +10,6 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer"
 
-// Example custom component
 function MyCustomComponent() {
   return (
     <div className="p-4 border rounded-lg bg-gray-50">
