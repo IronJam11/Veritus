@@ -3,7 +3,7 @@
 import '@rainbow-me/rainbowkit/styles.css';
 import type { ReactNode } from 'react';
 import { WagmiProvider, createConfig, http } from 'wagmi';
-import { mainnet, polygon, optimism, arbitrum, base, sepolia, baseSepolia } from 'wagmi/chains';
+import { mainnet, polygon, optimism, arbitrum, base, sepolia, baseSepolia, etherlinkTestnet } from 'wagmi/chains';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { RainbowKitProvider, connectorsForWallets, darkTheme } from '@rainbow-me/rainbowkit';
 import {
@@ -13,7 +13,7 @@ import {
 import { ThemeProvider } from '@/context/ThemeContext';
 import { Toaster } from 'react-hot-toast';
 
-const chains = [mainnet, polygon, optimism, arbitrum, base, sepolia, baseSepolia] as const;
+const chains = [mainnet, polygon, optimism, arbitrum, base, sepolia, baseSepolia, etherlinkTestnet] as const;
 
 const connectors = connectorsForWallets(
   [
@@ -39,6 +39,7 @@ const config = createConfig({
     [base.id]: http(),
     [sepolia.id]: http(),
     [baseSepolia.id]: http(),
+    [etherlinkTestnet.id]: http()
   },
   ssr: true,
 });

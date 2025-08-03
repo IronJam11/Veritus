@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
-import * as THREE from '../../../../node_modules/@types/three';
+import * as THREE from 'three';
+
 import { TrendingUp, TrendingDown, Music, Palette, Camera, Heart, Star, Play, Users, DollarSign, BarChart3, Activity, Mic, Video, BookOpen, Gamepad2 } from 'lucide-react';
 
 const Trading3DChart = ({ isDarkMode = true }) => {

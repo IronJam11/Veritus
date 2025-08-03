@@ -137,6 +137,15 @@ export const useAssetPlatformContract = () => {
     });
   };
 
+  const useGetAssetNFTContractAddress = () => {
+    return useReadContract({
+      address: UNIVERSAL_ASSET_TOKENIZATION_PLATFORM_CONTRACT_ADDRESS,
+      abi: TYPED_PLATFORM_ABI,
+      functionName: 'getAssetNFTAddress',
+      chainId: chainId,
+    });
+  };
+
   
 
   const useGetCreatorBasicInfo = (creator: string) => {
@@ -402,6 +411,7 @@ export const useAssetPlatformContract = () => {
     useIsPlatformVerified,
     useAssetRoyaltyBalance,
     useCreators,
+    useGetAssetNFTContractAddress,
     useAssets,
     registerCreator,
     createAsset,

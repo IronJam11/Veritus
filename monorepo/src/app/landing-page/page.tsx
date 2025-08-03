@@ -33,11 +33,13 @@ const LandingPage = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const { isDarkMode: darkMode, toggleTheme, themeClasses } = useTheme();
 
+
   const words = ['Future', 'Innovation', 'Excellence', 'Success'];
   const currentWord = words[currentWordIndex];
 
   useEffect(() => {
     setIsVisible(true);
+
     let timeout: NodeJS.Timeout;
     if (typedText.length < currentWord.length) {
       timeout = setTimeout(() => {

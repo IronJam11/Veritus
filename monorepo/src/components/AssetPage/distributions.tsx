@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {JSX, useEffect, useRef} from 'react';
 import { useTheme } from '@/context/ThemeContext';
 import { getAssetTypeLabel } from '@/utils/getAssetLabel';
 import { useAssetPlatformContract } from '@/services/contract/ethereum/UniversalAssetTokenizationPlatform';

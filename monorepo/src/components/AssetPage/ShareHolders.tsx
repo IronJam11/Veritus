@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React, { JSX, use } from 'react';
 import { useTheme } from '@/context/ThemeContext';
 import { getAssetTypeLabel } from '@/utils/getAssetLabel';
 import { getVerificationStatusLabel } from '@/utils/getVerificationStatusLabel';
@@ -43,7 +43,9 @@ export default function ShareHolders({
     } = useDistributeFunds();
 
   function calculateClaimEarning(address: string, shareholders: any): bigint {
-    const idx = shareholders[0].indexOf(address);
+    const idx = shareholders && shareholders[0]
+    ? shareholders[0].findIndex((a: string) => a.toLowerCase() === address.toLowerCase())
+    : -1;
     const ownedShares = idx !== -1 ? shareholders[1][idx] : BigInt(0);
     const total = shareTokenData.totalSupply;
     const royalties = BigInt(assetData.totalRoyaltiesCollected);

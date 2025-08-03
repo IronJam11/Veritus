@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, JSX } from 'react';
 import { useTheme } from '@/context/ThemeContext';
 import { getAssetTypeLabel } from '@/utils/getAssetLabel';
 import { getVerificationStatusLabel } from '@/utils/getVerificationStatusLabel';

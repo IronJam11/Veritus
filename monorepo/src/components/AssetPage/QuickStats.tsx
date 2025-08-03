@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import { useTheme } from '@/context/ThemeContext';
 import { getAssetTypeLabel } from '@/utils/getAssetLabel';
 import { getVerificationStatusLabel } from '@/utils/getVerificationStatusLabel';

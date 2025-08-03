@@ -47,6 +47,7 @@ contract UniversalAssetTokenizationPlatform is ERC721Holder, ReentrancyGuard {
     
     constructor() {
         ASSET_NFT = new AssetNFT();
+
         platformOwner = msg.sender;
     }
 
@@ -114,6 +115,9 @@ contract UniversalAssetTokenizationPlatform is ERC721Holder, ReentrancyGuard {
         assetToVerifiers[assetId].push(msg.sender);
     }
 
+    function getAssetNFTAddress() external view returns (address) {
+        return address(ASSET_NFT);
+    }
 
     function buyAssetShares(uint256 assetId, uint256 shareAmount) external payable nonReentrant {
         if(assetId >= _assetCounter) revert InvalidInput();

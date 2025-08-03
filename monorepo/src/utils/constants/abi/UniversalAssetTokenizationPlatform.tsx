@@ -1,1 +1,1241 @@
-export const PLATFORM_ABI = [{"type":"constructor","inputs":[{"name":"ipAssetRegistry","type":"address","internalType":"address"},{"name":"licensingModule","type":"address","internalType":"address"},{"name":"pilTemplate","type":"address","internalType":"address"},{"name":"royaltyPolicyLAP","type":"address","internalType":"address"},{"name":"wip","type":"address","internalType":"address"}],"stateMutability":"nonpayable"},{"type":"receive","stateMutability":"payable"},{"type":"function","name":"ASSET_NFT","inputs":[],"outputs":[{"name":"","type":"address","internalType":"contract AssetNFT"}],"stateMutability":"view"},{"type":"function","name":"IP_ASSET_REGISTRY","inputs":[],"outputs":[{"name":"","type":"address","internalType":"contract IIPAssetRegistry"}],"stateMutability":"view"},{"type":"function","name":"LICENSING_MODULE","inputs":[],"outputs":[{"name":"","type":"address","internalType":"contract ILicensingModule"}],"stateMutability":"view"},{"type":"function","name":"MAX_PLATFORM_FEE","inputs":[],"outputs":[{"name":"","type":"uint256","internalType":"uint256"}],"stateMutability":"view"},{"type":"function","name":"PIL_TEMPLATE","inputs":[],"outputs":[{"name":"","type":"address","internalType":"contract IPILicenseTemplate"}],"stateMutability":"view"},{"type":"function","name":"ROYALTY_POLICY_LAP","inputs":[],"outputs":[{"name":"","type":"address","internalType":"address"}],"stateMutability":"view"},{"type":"function","name":"WIP","inputs":[],"outputs":[{"name":"","type":"address","internalType":"address"}],"stateMutability":"view"},{"type":"function","name":"assetRoyaltyBalance","inputs":[{"name":"","type":"uint256","internalType":"uint256"}],"outputs":[{"name":"","type":"uint256","internalType":"uint256"}],"stateMutability":"view"},{"type":"function","name":"assetToVerifiers","inputs":[{"name":"","type":"uint256","internalType":"uint256"},{"name":"","type":"uint256","internalType":"uint256"}],"outputs":[{"name":"","type":"address","internalType":"address"}],"stateMutability":"view"},{"type":"function","name":"assets","inputs":[{"name":"","type":"uint256","internalType":"uint256"}],"outputs":[{"name":"nftTokenId","type":"uint256","internalType":"uint256"},{"name":"ipId","type":"address","internalType":"address"},{"name":"licenseTermsId","type":"uint256","internalType":"uint256"},{"name":"creator","type":"address","internalType":"address"},{"name":"assetType","type":"uint8","internalType":"enum AssetType"},{"name":"title","type":"string","internalType":"string"},{"name":"description","type":"string","internalType":"string"},{"name":"metadataURI","type":"string","internalType":"string"},{"name":"shareTokenAddress","type":"address","internalType":"address"},{"name":"totalRoyaltiesCollected","type":"uint256","internalType":"uint256"},{"name":"exists","type":"bool","internalType":"bool"},{"name":"verificationStatus","type":"uint8","internalType":"enum VerificationStatus"},{"name":"yes_votes","type":"uint256","internalType":"uint256"},{"name":"no_votes","type":"uint256","internalType":"uint256"}],"stateMutability":"view"},{"type":"function","name":"buyAssetShares","inputs":[{"name":"assetId","type":"uint256","internalType":"uint256"},{"name":"shareAmount","type":"uint256","internalType":"uint256"}],"outputs":[],"stateMutability":"payable"},{"type":"function","name":"claimAllRoyalties","inputs":[{"name":"assetId","type":"uint256","internalType":"uint256"}],"outputs":[],"stateMutability":"nonpayable"},{"type":"function","name":"claimRoyalties","inputs":[{"name":"assetId","type":"uint256","internalType":"uint256"},{"name":"distributionIndex","type":"uint256","internalType":"uint256"}],"outputs":[],"stateMutability":"nonpayable"},{"type":"function","name":"createAsset","inputs":[{"name":"assetType","type":"uint8","internalType":"enum AssetType"},{"name":"title","type":"string","internalType":"string"},{"name":"description","type":"string","internalType":"string"},{"name":"metadataURI","type":"string","internalType":"string"},{"name":"creatorSharesPercent","type":"uint256","internalType":"uint256"},{"name":"pricePerShare","type":"uint256","internalType":"uint256"},{"name":"commercialRevSharePercent","type":"uint256","internalType":"uint256"}],"outputs":[{"name":"assetId","type":"uint256","internalType":"uint256"}],"stateMutability":"nonpayable"},{"type":"function","name":"creators","inputs":[{"name":"","type":"address","internalType":"address"}],"outputs":[{"name":"wallet","type":"address","internalType":"address"},{"name":"assetsCreated","type":"uint256","internalType":"uint256"},{"name":"isVerified","type":"bool","internalType":"bool"},{"name":"verificationStatus","type":"uint8","internalType":"enum VerificationStatus"},{"name":"profilephotoIPFS","type":"string","internalType":"string"},{"name":"bio","type":"string","internalType":"string"},{"name":"platformName","type":"string","internalType":"string"}],"stateMutability":"view"},{"type":"function","name":"depositRoyalties","inputs":[{"name":"assetId","type":"uint256","internalType":"uint256"}],"outputs":[],"stateMutability":"payable"},{"type":"function","name":"distributeRoyalties","inputs":[{"name":"assetId","type":"uint256","internalType":"uint256"}],"outputs":[],"stateMutability":"nonpayable"},{"type":"function","name":"distributionCount","inputs":[{"name":"","type":"uint256","internalType":"uint256"}],"outputs":[{"name":"","type":"uint256","internalType":"uint256"}],"stateMutability":"view"},{"type":"function","name":"getAllAssetShares","inputs":[],"outputs":[{"name":"","type":"tuple[]","internalType":"struct UserAssets[]","components":[{"name":"asset","type":"tuple","internalType":"struct Asset","components":[{"name":"nftTokenId","type":"uint256","internalType":"uint256"},{"name":"ipId","type":"address","internalType":"address"},{"name":"licenseTermsId","type":"uint256","internalType":"uint256"},{"name":"creator","type":"address","internalType":"address"},{"name":"assetType","type":"uint8","internalType":"enum AssetType"},{"name":"title","type":"string","internalType":"string"},{"name":"description","type":"string","internalType":"string"},{"name":"metadataURI","type":"string","internalType":"string"},{"name":"shareTokenAddress","type":"address","internalType":"address"},{"name":"totalRoyaltiesCollected","type":"uint256","internalType":"uint256"},{"name":"exists","type":"bool","internalType":"bool"},{"name":"verificationStatus","type":"uint8","internalType":"enum VerificationStatus"},{"name":"yes_votes","type":"uint256","internalType":"uint256"},{"name":"no_votes","type":"uint256","internalType":"uint256"}]},{"name":"balance","type":"uint256","internalType":"uint256"}]}],"stateMutability":"view"},{"type":"function","name":"getAllAssets","inputs":[],"outputs":[{"name":"","type":"tuple[]","internalType":"struct AssetWithVote[]","components":[{"name":"asset","type":"tuple","internalType":"struct Asset","components":[{"name":"nftTokenId","type":"uint256","internalType":"uint256"},{"name":"ipId","type":"address","internalType":"address"},{"name":"licenseTermsId","type":"uint256","internalType":"uint256"},{"name":"creator","type":"address","internalType":"address"},{"name":"assetType","type":"uint8","internalType":"enum AssetType"},{"name":"title","type":"string","internalType":"string"},{"name":"description","type":"string","internalType":"string"},{"name":"metadataURI","type":"string","internalType":"string"},{"name":"shareTokenAddress","type":"address","internalType":"address"},{"name":"totalRoyaltiesCollected","type":"uint256","internalType":"uint256"},{"name":"exists","type":"bool","internalType":"bool"},{"name":"verificationStatus","type":"uint8","internalType":"enum VerificationStatus"},{"name":"yes_votes","type":"uint256","internalType":"uint256"},{"name":"no_votes","type":"uint256","internalType":"uint256"}]},{"name":"vote","type":"uint256","internalType":"uint256"},{"name":"verifiers","type":"address[]","internalType":"address[]"}]}],"stateMutability":"view"},{"type":"function","name":"getAllDistributions","inputs":[{"name":"assetId","type":"uint256","internalType":"uint256"}],"outputs":[{"name":"totalAmounts","type":"uint256[]","internalType":"uint256[]"},{"name":"timestamps","type":"uint256[]","internalType":"uint256[]"},{"name":"claimed","type":"bool[]","internalType":"bool[]"},{"name":"claimableAmounts","type":"uint256[]","internalType":"uint256[]"},{"name":"totalClaimable","type":"uint256","internalType":"uint256"}],"stateMutability":"view"},{"type":"function","name":"getAllUserAssets","inputs":[],"outputs":[{"name":"","type":"tuple[]","internalType":"struct Asset[]","components":[{"name":"nftTokenId","type":"uint256","internalType":"uint256"},{"name":"ipId","type":"address","internalType":"address"},{"name":"licenseTermsId","type":"uint256","internalType":"uint256"},{"name":"creator","type":"address","internalType":"address"},{"name":"assetType","type":"uint8","internalType":"enum AssetType"},{"name":"title","type":"string","internalType":"string"},{"name":"description","type":"string","internalType":"string"},{"name":"metadataURI","type":"string","internalType":"string"},{"name":"shareTokenAddress","type":"address","internalType":"address"},{"name":"totalRoyaltiesCollected","type":"uint256","internalType":"uint256"},{"name":"exists","type":"bool","internalType":"bool"},{"name":"verificationStatus","type":"uint8","internalType":"enum VerificationStatus"},{"name":"yes_votes","type":"uint256","internalType":"uint256"},{"name":"no_votes","type":"uint256","internalType":"uint256"}]}],"stateMutability":"view"},{"type":"function","name":"getAsset","inputs":[{"name":"assetId","type":"uint256","internalType":"uint256"}],"outputs":[{"name":"","type":"tuple","internalType":"struct Asset","components":[{"name":"nftTokenId","type":"uint256","internalType":"uint256"},{"name":"ipId","type":"address","internalType":"address"},{"name":"licenseTermsId","type":"uint256","internalType":"uint256"},{"name":"creator","type":"address","internalType":"address"},{"name":"assetType","type":"uint8","internalType":"enum AssetType"},{"name":"title","type":"string","internalType":"string"},{"name":"description","type":"string","internalType":"string"},{"name":"metadataURI","type":"string","internalType":"string"},{"name":"shareTokenAddress","type":"address","internalType":"address"},{"name":"totalRoyaltiesCollected","type":"uint256","internalType":"uint256"},{"name":"exists","type":"bool","internalType":"bool"},{"name":"verificationStatus","type":"uint8","internalType":"enum VerificationStatus"},{"name":"yes_votes","type":"uint256","internalType":"uint256"},{"name":"no_votes","type":"uint256","internalType":"uint256"}]},{"name":"verifiers","type":"address[]","internalType":"address[]"}],"stateMutability":"view"},{"type":"function","name":"getCreatorBasicInfo","inputs":[{"name":"creator","type":"address","internalType":"address"}],"outputs":[{"name":"walletAddress","type":"address","internalType":"address"},{"name":"name","type":"string","internalType":"string"},{"name":"photo","type":"string","internalType":"string"},{"name":"bio","type":"string","internalType":"string"},{"name":"isVerified","type":"bool","internalType":"bool"}],"stateMutability":"view"},{"type":"function","name":"getUserDepositions","inputs":[{"name":"user","type":"address","internalType":"address"}],"outputs":[{"name":"","type":"tuple[]","internalType":"struct Deposition[]","components":[{"name":"amount","type":"uint256","internalType":"uint256"},{"name":"timestamp","type":"uint256","internalType":"uint256"}]}],"stateMutability":"view"},{"type":"function","name":"getUserShares","inputs":[{"name":"user","type":"address","internalType":"address"},{"name":"assetId","type":"uint256","internalType":"uint256"}],"outputs":[{"name":"","type":"uint256","internalType":"uint256"}],"stateMutability":"view"},{"type":"function","name":"hasVoted","inputs":[{"name":"assetId","type":"uint256","internalType":"uint256"},{"name":"user","type":"address","internalType":"address"}],"outputs":[{"name":"","type":"bool","internalType":"bool"}],"stateMutability":"view"},{"type":"function","name":"onERC721Received","inputs":[{"name":"","type":"address","internalType":"address"},{"name":"","type":"address","internalType":"address"},{"name":"","type":"uint256","internalType":"uint256"},{"name":"","type":"bytes","internalType":"bytes"}],"outputs":[{"name":"","type":"bytes4","internalType":"bytes4"}],"stateMutability":"nonpayable"},{"type":"function","name":"pause","inputs":[],"outputs":[],"stateMutability":"nonpayable"},{"type":"function","name":"platformFeePercent","inputs":[],"outputs":[{"name":"","type":"uint256","internalType":"uint256"}],"stateMutability":"view"},{"type":"function","name":"platformOwner","inputs":[],"outputs":[{"name":"","type":"address","internalType":"address"}],"stateMutability":"view"},{"type":"function","name":"registerCreator","inputs":[{"name":"_name","type":"string","internalType":"string"},{"name":"_profilephotoIPFS","type":"string","internalType":"string"},{"name":"_bio","type":"string","internalType":"string"}],"outputs":[],"stateMutability":"nonpayable"},{"type":"function","name":"royaltyDistributions","inputs":[{"name":"","type":"uint256","internalType":"uint256"},{"name":"","type":"uint256","internalType":"uint256"}],"outputs":[{"name":"totalAmount","type":"uint256","internalType":"uint256"},{"name":"timestamp","type":"uint256","internalType":"uint256"},{"name":"totalSharesAtDistribution","type":"uint256","internalType":"uint256"}],"stateMutability":"view"},{"type":"function","name":"updateCreatorProfileDetails","inputs":[{"name":"_name","type":"string","internalType":"string"},{"name":"_profilephotoIPFS","type":"string","internalType":"string"},{"name":"_bio","type":"string","internalType":"string"}],"outputs":[],"stateMutability":"nonpayable"},{"type":"function","name":"userDistributions","inputs":[{"name":"","type":"uint256","internalType":"uint256"},{"name":"","type":"uint256","internalType":"uint256"},{"name":"","type":"address","internalType":"address"}],"outputs":[{"name":"","type":"uint256","internalType":"uint256"}],"stateMutability":"view"},{"type":"function","name":"userOwnsAssetShares","inputs":[{"name":"","type":"address","internalType":"address"},{"name":"","type":"uint256","internalType":"uint256"}],"outputs":[{"name":"","type":"bool","internalType":"bool"}],"stateMutability":"view"},{"type":"function","name":"userToDepositions","inputs":[{"name":"","type":"address","internalType":"address"},{"name":"","type":"uint256","internalType":"uint256"}],"outputs":[{"name":"amount","type":"uint256","internalType":"uint256"},{"name":"timestamp","type":"uint256","internalType":"uint256"}],"stateMutability":"view"},{"type":"function","name":"userToOwnedAssets","inputs":[{"name":"","type":"address","internalType":"address"},{"name":"","type":"uint256","internalType":"uint256"}],"outputs":[{"name":"","type":"uint256","internalType":"uint256"}],"stateMutability":"view"},{"type":"function","name":"userToOwnedAssetsNFTIds","inputs":[{"name":"","type":"address","internalType":"address"},{"name":"","type":"uint256","internalType":"uint256"}],"outputs":[{"name":"","type":"uint256","internalType":"uint256"}],"stateMutability":"view"},{"type":"function","name":"voteOnAsset","inputs":[{"name":"assetId","type":"uint256","internalType":"uint256"},{"name":"vote","type":"bool","internalType":"bool"}],"outputs":[],"stateMutability":"nonpayable"},{"type":"error","name":"CreatorAlreadyRegistered","inputs":[]},{"type":"error","name":"InvalidInput","inputs":[]},{"type":"error","name":"NoClaimableRoyalties","inputs":[]},{"type":"error","name":"NoRoyaltiesToDistribute","inputs":[]},{"type":"error","name":"NotCreatorOwner","inputs":[]},{"type":"error","name":"OnlyPlatformOwner","inputs":[]},{"type":"error","name":"ReentrancyGuardReentrantCall","inputs":[]},{"type":"error","name":"TransferFailed","inputs":[]}];
+export const PLATFORM_ABI = [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "CreatorAlreadyRegistered",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidInput",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NoClaimableRoyalties",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NoRoyaltiesToDistribute",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NotCreatorOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "OnlyPlatformOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ReentrancyGuardReentrantCall",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "TransferFailed",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ASSET_NFT",
+      "outputs": [
+        {
+          "internalType": "contract AssetNFT",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "MAX_PLATFORM_FEE",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "assetRoyaltyBalance",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "assetToVerifiers",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "assets",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "nftTokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "ipId",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "licenseTermsId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "creator",
+          "type": "address"
+        },
+        {
+          "internalType": "enum AssetType",
+          "name": "assetType",
+          "type": "uint8"
+        },
+        {
+          "internalType": "string",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "metadataURI",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "shareTokenAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "totalRoyaltiesCollected",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "exists",
+          "type": "bool"
+        },
+        {
+          "internalType": "enum VerificationStatus",
+          "name": "verificationStatus",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint256",
+          "name": "yes_votes",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "no_votes",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "assetId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "shareAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "buyAssetShares",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "assetId",
+          "type": "uint256"
+        }
+      ],
+      "name": "claimAllRoyalties",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "assetId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "distributionIndex",
+          "type": "uint256"
+        }
+      ],
+      "name": "claimRoyalties",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "enum AssetType",
+          "name": "assetType",
+          "type": "uint8"
+        },
+        {
+          "internalType": "string",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "metadataURI",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "creatorSharesPercent",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "pricePerShare",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "commercialRevSharePercent",
+          "type": "uint256"
+        }
+      ],
+      "name": "createAsset",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "assetId",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "creators",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "wallet",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "assetsCreated",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "isVerified",
+          "type": "bool"
+        },
+        {
+          "internalType": "enum VerificationStatus",
+          "name": "verificationStatus",
+          "type": "uint8"
+        },
+        {
+          "internalType": "string",
+          "name": "profilephotoIPFS",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "bio",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "platformName",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "assetId",
+          "type": "uint256"
+        }
+      ],
+      "name": "depositRoyalties",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "assetId",
+          "type": "uint256"
+        }
+      ],
+      "name": "distributeRoyalties",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "distributionCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getAllAssetShares",
+      "outputs": [
+        {
+          "components": [
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "nftTokenId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "address",
+                  "name": "ipId",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "licenseTermsId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "address",
+                  "name": "creator",
+                  "type": "address"
+                },
+                {
+                  "internalType": "enum AssetType",
+                  "name": "assetType",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "string",
+                  "name": "title",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "description",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "metadataURI",
+                  "type": "string"
+                },
+                {
+                  "internalType": "address",
+                  "name": "shareTokenAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "totalRoyaltiesCollected",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "exists",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "enum VerificationStatus",
+                  "name": "verificationStatus",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "yes_votes",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "no_votes",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct Asset",
+              "name": "asset",
+              "type": "tuple"
+            },
+            {
+              "internalType": "uint256",
+              "name": "balance",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct UserAssets[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getAllAssets",
+      "outputs": [
+        {
+          "components": [
+            {
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "nftTokenId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "address",
+                  "name": "ipId",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "licenseTermsId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "address",
+                  "name": "creator",
+                  "type": "address"
+                },
+                {
+                  "internalType": "enum AssetType",
+                  "name": "assetType",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "string",
+                  "name": "title",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "description",
+                  "type": "string"
+                },
+                {
+                  "internalType": "string",
+                  "name": "metadataURI",
+                  "type": "string"
+                },
+                {
+                  "internalType": "address",
+                  "name": "shareTokenAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "totalRoyaltiesCollected",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bool",
+                  "name": "exists",
+                  "type": "bool"
+                },
+                {
+                  "internalType": "enum VerificationStatus",
+                  "name": "verificationStatus",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "yes_votes",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "no_votes",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct Asset",
+              "name": "asset",
+              "type": "tuple"
+            },
+            {
+              "internalType": "uint256",
+              "name": "vote",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address[]",
+              "name": "verifiers",
+              "type": "address[]"
+            }
+          ],
+          "internalType": "struct AssetWithVote[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "assetId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getAllDistributions",
+      "outputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "totalAmounts",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "timestamps",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "bool[]",
+          "name": "claimed",
+          "type": "bool[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "claimableAmounts",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "uint256",
+          "name": "totalClaimable",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getAllUserAssets",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "nftTokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "ipId",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "licenseTermsId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "creator",
+              "type": "address"
+            },
+            {
+              "internalType": "enum AssetType",
+              "name": "assetType",
+              "type": "uint8"
+            },
+            {
+              "internalType": "string",
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "description",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "metadataURI",
+              "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "shareTokenAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "totalRoyaltiesCollected",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "exists",
+              "type": "bool"
+            },
+            {
+              "internalType": "enum VerificationStatus",
+              "name": "verificationStatus",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint256",
+              "name": "yes_votes",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "no_votes",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct Asset[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "assetId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getAsset",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "nftTokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "ipId",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "licenseTermsId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "creator",
+              "type": "address"
+            },
+            {
+              "internalType": "enum AssetType",
+              "name": "assetType",
+              "type": "uint8"
+            },
+            {
+              "internalType": "string",
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "description",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "metadataURI",
+              "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "shareTokenAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "totalRoyaltiesCollected",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "exists",
+              "type": "bool"
+            },
+            {
+              "internalType": "enum VerificationStatus",
+              "name": "verificationStatus",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint256",
+              "name": "yes_votes",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "no_votes",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct Asset",
+          "name": "",
+          "type": "tuple"
+        },
+        {
+          "internalType": "address[]",
+          "name": "verifiers",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getAssetNFTAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "creator",
+          "type": "address"
+        }
+      ],
+      "name": "getCreatorBasicInfo",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "walletAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "photo",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "bio",
+          "type": "string"
+        },
+        {
+          "internalType": "bool",
+          "name": "isVerified",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "getUserDepositions",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct Deposition[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "assetId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getUserShares",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "assetId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "hasVoted",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "name": "onERC721Received",
+      "outputs": [
+        {
+          "internalType": "bytes4",
+          "name": "",
+          "type": "bytes4"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pause",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "platformFeePercent",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "platformOwner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_profilephotoIPFS",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_bio",
+          "type": "string"
+        }
+      ],
+      "name": "registerCreator",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "royaltyDistributions",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "totalAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "totalSharesAtDistribution",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_profilephotoIPFS",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_bio",
+          "type": "string"
+        }
+      ],
+      "name": "updateCreatorProfileDetails",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "userDistributions",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "userOwnsAssetShares",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "userToDepositions",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "userToOwnedAssets",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "userToOwnedAssetsNFTIds",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "assetId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "vote",
+          "type": "bool"
+        }
+      ],
+      "name": "voteOnAsset",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
+  ]
