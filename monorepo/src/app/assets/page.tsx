@@ -19,7 +19,18 @@ export default function AssetsPage() {
     } = useAssetPlatformContract();
 
     const { data: assetsData, isLoading: assetsLoading, error: assetsError } = useGetAllAssets();
-    console.log(assetsData);
+    console.log("Assets data:", assetsData);
+    
+    // Debug: Log first asset's metadata URI
+    if (assetsData && Array.isArray(assetsData) && assetsData.length > 0) {
+        console.log("First asset metadata URI:", assetsData[0].asset.metadataURI);
+        console.log("First asset details:", {
+            tokenId: assetsData[0].asset.nftTokenId,
+            title: assetsData[0].asset.title,
+            description: assetsData[0].asset.description,
+            metadataURI: assetsData[0].asset.metadataURI
+        });
+    }
 
     const [searchTerm, setSearchTerm] = useState('');
     const [filterType, setFilterType] = useState<number | null>(null);
