@@ -1,1 +1,1 @@
-export const WEBSITE_NAME = "SigmoCity"
+export const WEBSITE_NAME = "Veritus"
