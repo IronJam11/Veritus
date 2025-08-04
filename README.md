@@ -122,10 +122,9 @@ It’s about rewriting the economics of collaboration for the 21st century—on 
 
 ## Documentation
 
-
-- **Contract Addresses:**
-  - UNIVERSAL_ASSET_TOKENIZATION_PLATFORM_CONTRACT_ADDRESS: ``
-  - ASSET_NFT_CONTRACT_ADDRESS: ``
+- **Contract Addresses:** (Deployed on etherlink testnet) 
+  - UNIVERSAL_ASSET_TOKENIZATION_PLATFORM_CONTRACT_ADDRESS: `0xa988652EF7866c619714869aca9D653adf5D0FD3"`
+  - ASSET_NFT_CONTRACT_ADDRESS: `0xd91f8AC8ceFD88618f492019685b0e6fcd7d1E52`
 
 ---
 
@@ -148,3 +147,4 @@ MIT License. Community-owned, forever.
 ---
 
 _Etherlink Hackathon 2025, Collab Culture Track Submission_
+
