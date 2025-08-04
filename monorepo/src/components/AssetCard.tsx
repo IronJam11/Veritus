@@ -4,6 +4,7 @@ import { addressExists } from '@/services/isVoted';
 import { useAccount } from 'wagmi';
 import { useAssetPlatformContract } from '@/services/contract/ethereum/UniversalAssetTokenizationPlatform';
 import { useAssetServices } from '@/services/frontend/ethereum/buyAssets';
+import { extractIPFSHash } from '@/utils/ipfs/gateway';
 import Link from 'next/link';
 import toast from 'react-hot-toast';
 export interface Asset {
@@ -49,19 +50,53 @@ const AssetCard: React.FC<AssetCardProps> = ({ asset, vote, verifiers}) => {
   const {voteOnAsset, isPending, isConfirming, isConfirmed, error } = useAssetPlatformContract();
   useEffect(() => {
     const fetchMetadata = async () => {
-      if (!asset.metadataURI) return;
+      if (!asset.metadataURI) {
+        console.log("No metadataURI for asset:", asset.nftTokenId);
+        return;
+      }
       
       try {
-        const response = await fetch(asset.metadataURI);
+        console.log("Fetching metadata from:", asset.metadataURI);
+        
+        // Extract IPFS hash from the URL
+        const hash = extractIPFSHash(asset.metadataURI);
+        if (!hash) {
+          throw new Error('Could not extract IPFS hash from URL');
+        }
+        
+        // Use our API route as a proxy
+        const response = await fetch(`/api/ipfs/${hash}`);
+        
+        if (!response.ok) {
+          throw new Error(`API responded with status: ${response.status}`);
+        }
+        
         const data: AssetMetadata = await response.json();
+        console.log("Metadata fetched successfully:", data);
+        
+        // Ensure image URL uses our API route for consistency
+        if (data.image) {
+          const imageHash = extractIPFSHash(data.image);
+          if (imageHash) {
+            data.image = `/api/ipfs/${imageHash}`;
+          }
+        }
+        
         setMetadata(data);
       } catch (error) {
-        console.error('Failed to fetch metadata:', error);
+        console.error('Failed to fetch metadata for asset', asset.nftTokenId, ':', error);
+        // Set a fallback metadata structure
+        setMetadata({
+          name: asset.title || `Asset #${asset.nftTokenId}`,
+          description: asset.description || "No description available",
+          image: "", // Empty image will trigger the fallback UI
+          attributes: []
+        });
       }
     };
 
     fetchMetadata();
-  }, [asset.metadataURI]);
+  }, [asset.metadataURI, asset.nftTokenId, asset.title, asset.description]);
 
   const getAssetTypeLabel = (assetType: number) => {
     const types = ['Digital Art', 'Music', 'Video', 'Document', 'Software', 'Other'];
@@ -273,62 +308,64 @@ const AssetCard: React.FC<AssetCardProps> = ({ asset, vote, verifiers}) => {
     />
     
     <div className="relative">
-      {/* Image Section */}
-      {metadata?.image && (
-        <div className="relative h-56 w-full overflow-hidden rounded-t-2xl">
-          {imageLoading && (
+      {/* Image Section - Always show this section */}
+      <div className="relative h-56 w-full overflow-hidden rounded-t-2xl">
+        {imageLoading && metadata?.image && (
+          <div 
+            className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-transparent to-black/10"
+            style={{ backgroundColor: theme.hoverBg }}
+          >
             <div 
-              className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-transparent to-black/10"
-              style={{ backgroundColor: theme.hoverBg }}
-            >
-              <div 
-                className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2" 
-                style={{ borderColor: theme.textPrimary }}
-              ></div>
-            </div>
-          )}
-          {!imageError ? (
-            <img
-              src={metadata.image}
-              alt={metadata.name || asset.title}
-              className={`w-full h-full object-cover transition-all duration-500 ease-out group-hover:scale-105 ${imageLoading ? 'opacity-0' : 'opacity-100'}`}
-              onLoad={() => setImageLoading(false)}
-              onError={() => {
-                setImageError(true);
-                setImageLoading(false);
-              }}
-            />
-          ) : (
-            <div 
-              className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200"
-              style={{ backgroundColor: theme.hoverBg, color: theme.textSecondary }}
-            >
-              <div className="text-center p-6">
-                <svg className="w-16 h-16 mx-auto mb-3 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <p className="text-sm font-medium">Image not available</p>
+              className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2" 
+              style={{ borderColor: theme.textPrimary }}
+            ></div>
+          </div>
+        )}
+        {metadata?.image && !imageError ? (
+          <img
+            src={metadata.image}
+            alt={metadata.name || asset.title}
+            className={`w-full h-full object-cover transition-all duration-500 ease-out group-hover:scale-105 ${imageLoading ? 'opacity-0' : 'opacity-100'}`}
+            onLoad={() => setImageLoading(false)}
+            onError={() => {
+              console.error('Image failed to load:', metadata.image);
+              setImageError(true);
+              setImageLoading(false);
+            }}
+          />
+        ) : (
+          <div 
+            className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200"
+            style={{ backgroundColor: theme.hoverBg, color: theme.textSecondary }}
+          >
+            <div className="text-center p-6">
+              {getAssetTypeIcon(asset.assetType)}
+              <div className="mt-4">
+                <p className="text-sm font-medium mb-1">{getAssetTypeLabel(asset.assetType)}</p>
+                <p className="text-xs opacity-75">
+                  {metadata ? 'Image not available' : 'Loading content...'}
+                </p>
               </div>
             </div>
-          )}
-          
-          {/* Status Badge Overlay */}
-          <div className="absolute top-4 right-4">
-            <div 
-              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium backdrop-blur-md shadow-sm"
-              style={{ 
-                color: statusConfig.color,
-                backgroundColor: `${statusConfig.bgColor}CC`,
-                border: `1px solid ${statusConfig.color}30`,
-                boxShadow: `0 2px 8px ${statusConfig.color}10`
-              }}
-            >
-              {statusConfig.icon}
-              <span>{statusConfig.label}</span>
-            </div>
+          </div>
+        )}
+        
+        {/* Status Badge Overlay */}
+        <div className="absolute top-4 right-4">
+          <div 
+            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium backdrop-blur-md shadow-sm"
+            style={{ 
+              color: statusConfig.color,
+              backgroundColor: `${statusConfig.bgColor}CC`,
+              border: `1px solid ${statusConfig.color}30`,
+              boxShadow: `0 2px 8px ${statusConfig.color}10`
+            }}
+          >
+            {statusConfig.icon}
+            <span>{statusConfig.label}</span>
           </div>
         </div>
-      )}
+      </div>
 
       <div className="p-6">
         {/* Asset Type and Title */}
