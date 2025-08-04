@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd monorepo && npm run build",
+  "devCommand": "cd monorepo && npm run dev",
+  "installCommand": "cd monorepo && npm install",
+  "outputDirectory": "monorepo/.next"
+}
