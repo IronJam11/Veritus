@@ -4,6 +4,7 @@ import { getAssetTypeLabel } from '@/utils/getAssetLabel';
 import { getVerificationStatusLabel } from '@/utils/getVerificationStatusLabel';
 import { formatBigInt } from '@/utils/formatBigInt';
 import { AssetData } from '@/utils/interfaces/AssetData';
+import { extractIPFSHash } from '@/utils/ipfs/gateway';
 import { FileText, ExternalLink, Loader2, Youtube, Twitter, Instagram, Facebook, Linkedin, Github, Globe, Link } from 'lucide-react';
 
 interface MetadataAttribute {
@@ -32,9 +33,16 @@ export default function AssetOverview({ assetData }: { assetData: AssetData }): 
             setError(null);
             
             try {
-                const response = await fetch(assetData.metadataURI);
+                // Extract IPFS hash from the URL
+                const hash = extractIPFSHash(assetData.metadataURI);
+                if (!hash) {
+                    throw new Error('Could not extract IPFS hash from URL');
+                }
+                
+                // Use our API route as a proxy
+                const response = await fetch(`/api/ipfs/${hash}`);
                 if (!response.ok) {
-                    throw new Error('Failed to fetch metadata');
+                    throw new Error(`API responded with status: ${response.status}`);
                 }
                 const data = await response.json();
                 setMetadata(data);
@@ -128,7 +136,10 @@ export default function AssetOverview({ assetData }: { assetData: AssetData }): 
                         <label className={`text-sm font-medium ${theme.textMuted} block mb-2`}>Asset Image</label>
                         <div className="rounded-lg overflow-hidden border" style={{ borderColor: theme.border }}>
                             <img 
-                                src={metadata.image} 
+                                src={(() => {
+                                    const hash = extractIPFSHash(metadata.image);
+                                    return hash ? `/api/ipfs/${hash}` : metadata.image;
+                                })()} 
                                 alt={metadata.name || assetData.title}
                                 className="w-full h-64 object-cover"
                                 onError={(e) => {
