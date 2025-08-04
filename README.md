@@ -134,17 +134,5 @@ MIT License. Community-owned, forever.
 
 ---
 
-## Contact
 
-* Email: hello@veritus.xyz
-* Twitter: [@VeritusHQ](https://x.com/sigmoid423182)
-* Website: Coming soon (veritus.xyz)
-
----
-
-### Collaboration > Competition. Value for all.
-
----
-
-_Etherlink Hackathon 2025, Collab Culture Track Submission_
 
